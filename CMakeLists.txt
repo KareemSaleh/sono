@@ -26,11 +26,13 @@ endif()
 
 # Look up SDL2 and add the include directory to our include path
 find_package(SDL2 REQUIRED)
+find_package(SDL2_image REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR})
+include_directories(${SDL2_IMAGE_INCLUDE_DIR})
 include_directories(include)
-include_directories(src/include)
 
 add_library(Sono SHARED src/main.cpp)
+target_link_libraries(Sono ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARY})
 install(TARGETS Sono
         RUNTIME DESTINATION ${BIN_DIR}
         LIBRARY DESTINATION ${BIN_DIR}
