@@ -31,7 +31,7 @@ include_directories(${SDL2_INCLUDE_DIR})
 include_directories(${SDL2_IMAGE_INCLUDE_DIR})
 include_directories(include)
 
-add_library(Sono SHARED src/main.cpp)
+add_library(Sono MODULE src/main.cpp)
 target_link_libraries(Sono ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARY})
 install(TARGETS Sono
         RUNTIME DESTINATION ${BIN_DIR}
