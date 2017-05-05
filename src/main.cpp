@@ -1,9 +1,7 @@
-#include <string>
 #include "sono.h"
+#include "res_path.h"
+#include "cleanup.h"
 
-/*
- * Lesson 5: Clipping Sprite Sheets
- */
 //Screen attributes
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
@@ -13,7 +11,7 @@ const int SCREEN_HEIGHT = 480;
  * @param os The output stream to write the message too
  * @param msg The error message to write, format will be msg error: SDL_GetError()
  */
-void logSDLError(std::ostream &os, const std::string &msg){
+void Sono::logSDLError(std::ostream &os, const std::string &msg){
 	os << msg << " error: " << SDL_GetError() << std::endl;
 }
 /*
@@ -22,7 +20,7 @@ void logSDLError(std::ostream &os, const std::string &msg){
  * @param ren The renderer to load the texture onto
  * @return the loaded texture, or nullptr if something went wrong.
  */
-SDL_Texture* loadTexture(const std::string &file, SDL_Renderer *ren){
+SDL_Texture* Sono::loadTexture(const std::string &file, SDL_Renderer *ren){
 	SDL_Texture *texture = IMG_LoadTexture(ren, file.c_str());
 	if (texture == nullptr){
 		logSDLError(std::cout, "LoadTexture");
@@ -38,7 +36,7 @@ SDL_Texture* loadTexture(const std::string &file, SDL_Renderer *ren){
  * @param clip The sub-section of the texture to draw (clipping rect)
  *		default of nullptr draws the entire texture
  */
-void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, SDL_Rect dst, SDL_Rect *clip = nullptr){
+void Sono::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, SDL_Rect dst, SDL_Rect *clip = nullptr){
 	SDL_RenderCopy(ren, tex, clip, &dst);
 }
 /*
@@ -52,7 +50,7 @@ void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, SDL_Rect dst, SDL_Rect *
  * @param clip The sub-section of the texture to draw (clipping rect)
  *		default of nullptr draws the entire texture
  */
-void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_Rect *clip = nullptr){
+void Sono::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_Rect *clip = nullptr){
 	SDL_Rect dst;
 	dst.x = x;
 	dst.y = y;
@@ -64,4 +62,9 @@ void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_Rect *
 		SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
 	}
 	renderTexture(tex, ren, dst, clip);
+}
+
+
+Sono::Sono() {
+	logSDLError(std::cout, "Welcome to Sono!");
 }

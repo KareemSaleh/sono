@@ -1,7 +1,6 @@
 #!/bin/sh
 
-if [ $1 == 'clean' ]
-then
+if [[ $1 == 'clean' ]]; then
 	echo "Cleaning Sono Lib..."
 	rm -rf build/*
 	rm -rf bin
