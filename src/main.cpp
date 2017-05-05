@@ -64,7 +64,37 @@ void Sono::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_
 	renderTexture(tex, ren, dst, clip);
 }
 
+SonoCode Sono::CreateWindow() {
+	//Setup our window and renderer
+	SDL_Window *window = SDL_CreateWindow("Sonoluminescence", SDL_WINDOWPOS_CENTERED,
+			SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+
+	if (window == nullptr) {
+		logSDLError(std::cout, "CreateWindow");
+		SDL_Quit();
+		return SonoCode::SDL_ERROR;
+	}
+
+	return SonoCode::OK;
+}
+
+SonoCode Sono::CreateRenderer(SDL_Window *window) {
+	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
+			SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+
+	if (renderer == nullptr) {
+		logSDLError(std::cout, "CreateRenderer");
+		cleanup(window);
+		SDL_Quit();
+		return SonoCode::SDL_ERROR;
+	}
+
+	return SonoCode::OK;
+}
 
 Sono::Sono() {
-	logSDLError(std::cout, "Welcome to Sono!");
+	//Start up SDL and make sure it went ok
+	if (SDL_Init(SDL_INIT_VIDEO) != 0){
+		logSDLError(std::cout, "SDL_Init");
+	}
 }

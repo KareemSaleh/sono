@@ -6,7 +6,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${Sono_SOURCE_DIR}/cmake")
 # Set an output directory for our binaries
 set(BIN_DIR ${Sono_SOURCE_DIR}/bin)
 
-# Not sure why this is needed but it hides warning.
+# Set the standard to C++11
 set(CMAKE_CXX_STANDARD 11)
 
 # Look up SDL2 and add the include directory to our include path
