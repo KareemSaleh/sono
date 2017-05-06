@@ -5,7 +5,7 @@
 #include <string>
 #include <SDL.h>
 #include <SDL_image.h>
-#include "sono_error.h"
+#include "error.h"
 
 class Sono {
 
@@ -19,6 +19,7 @@ private:
 
 public:
   Sono();
+  ~Sono();
 
 };
 

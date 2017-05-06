@@ -98,3 +98,7 @@ Sono::Sono() {
 		logSDLError(std::cout, "SDL_Init");
 	}
 }
+
+Sono::~Sono() {
+	//TODO: Clean up!
+}
