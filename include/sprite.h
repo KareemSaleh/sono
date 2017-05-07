@@ -13,7 +13,7 @@ private:
   int x, y, w, h;
 
 public:
-  Sprite();
+  Sprite(SDL_Texture *tex);
   ~Sprite();
 
 };

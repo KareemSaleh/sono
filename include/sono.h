@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include "error.h"
+#include "sprite.h"
 
 class Sono {
 

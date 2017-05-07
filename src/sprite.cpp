@@ -1,9 +1,9 @@
 #include "sprite.h"
 
-Sprite::Sprite() {
+Sprite::Sprite(SDL_Texture *tex) {
 
 }
 
 Sprite::~Sprite() {
-  
+
 }
