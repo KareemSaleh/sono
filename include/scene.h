@@ -11,7 +11,7 @@ class Scene {
   };
 
 public:
-  AddSprite();
+  AddSprite(Sprite sprite);
 private:
 
 
