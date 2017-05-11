@@ -7,14 +7,6 @@ const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
 
 /*
- * Log an SDL error with some error message to the output stream of our choice
- * @param os The output stream to write the message too
- * @param msg The error message to write, format will be msg error: SDL_GetError()
- */
-void Sono::logSDLError(std::ostream &os, const std::string &msg){
-	os << msg << " error: " << SDL_GetError() << std::endl;
-}
-/*
  * Loads an image into a texture on the rendering device
  * @param file The image file to load
  * @param ren The renderer to load the texture onto
