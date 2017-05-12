@@ -1,24 +1,11 @@
 #include "sono.h"
-#include "res_path.h"
+#include "res_loader.h"
 #include "cleanup.h"
 
 //Screen attributes
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
 
-/*
- * Loads an image into a texture on the rendering device
- * @param file The image file to load
- * @param ren The renderer to load the texture onto
- * @return the loaded texture, or nullptr if something went wrong.
- */
-SDL_Texture* Sono::loadTexture(const std::string &file, SDL_Renderer *ren){
-	SDL_Texture *texture = IMG_LoadTexture(ren, file.c_str());
-	if (texture == nullptr){
-		logSDLError(std::cout, "LoadTexture");
-	}
-	return texture;
-}
 /*
  * Draw an SDL_Texture to an SDL_Renderer at some destination rect
  * taking a clip of the texture if desired

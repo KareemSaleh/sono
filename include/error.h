@@ -4,6 +4,7 @@
 enum SonoCode {
   OK = 0,
   SDL_ERROR = 1,
+  FILE_ERROR,
 };
 
 /*
