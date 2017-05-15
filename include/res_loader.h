@@ -25,7 +25,9 @@ SDL_Texture* LoadTexture(const std::string &file, SDL_Renderer *ren){
  * @param  path of the image file to load
  * @param  name of the file
  * @param  the intended renderer to load on to.
- * @return loaded texture if successful. 
+ * @return loaded texture if successful.
+ *
+ * TODO: generalize for all resource types.
  */
 SDL_Texture* LoadResource(const std::string relative_path, const std::string file_name, SDL_Renderer *renderer) {
   const std::string resPath = getResourcePath(relative_path);
