@@ -9,13 +9,14 @@
 
 class Sprite {
 
-private:
-  int x, y, w, h;
-
 public:
+  std::string Type;
+  
   Sprite(SDL_Texture *tex);
   ~Sprite();
 
+private:
+  int x, y, w, h;
 };
 
 #endif
