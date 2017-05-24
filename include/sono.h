@@ -13,8 +13,8 @@ class Sono {
 private:
   void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, SDL_Rect dst, SDL_Rect *clip);
   void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_Rect *clip);
-  SonoCode CreateWindow();
-  SonoCode CreateRenderer(SDL_Window *window);
+  SDL_Window* CreateWindow();
+  SDL_Renderer* CreateRenderer(SDL_Window *window);
 
 public:
   Sono();

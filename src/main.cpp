@@ -6,6 +6,24 @@
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
 
+Sono::Sono() {
+	//Start up SDL and make sure it went ok
+	if (SDL_Init(SDL_INIT_VIDEO) != 0){
+		logSDLError(std::cout, "SDL_Init");
+	}
+
+	SDL_Renderer *renderer = CreateRenderer(CreateWindow());
+
+	if (renderer != nullptr) {
+		logSDLError(std::cout, "YESSS");
+		SDL_Quit();
+	}
+}
+
+Sono::~Sono() {
+	//TODO: Clean up!
+}
+
 /*
  * Draw an SDL_Texture to an SDL_Renderer at some destination rect
  * taking a clip of the texture if desired
@@ -43,7 +61,7 @@ void Sono::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_
 	renderTexture(tex, ren, dst, clip);
 }
 
-SonoCode Sono::CreateWindow() {
+SDL_Window* Sono::CreateWindow() {
 	//Setup our window and renderer
 	SDL_Window *window = SDL_CreateWindow("Sonoluminescence", SDL_WINDOWPOS_CENTERED,
 			SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -51,13 +69,12 @@ SonoCode Sono::CreateWindow() {
 	if (window == nullptr) {
 		logSDLError(std::cout, "CreateWindow");
 		SDL_Quit();
-		return SonoCode::SDL_ERROR;
 	}
 
-	return SonoCode::OK;
+	return window;
 }
 
-SonoCode Sono::CreateRenderer(SDL_Window *window) {
+SDL_Renderer* Sono::CreateRenderer(SDL_Window *window) {
 	SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
 			SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
@@ -65,19 +82,7 @@ SonoCode Sono::CreateRenderer(SDL_Window *window) {
 		logSDLError(std::cout, "CreateRenderer");
 		cleanup(window);
 		SDL_Quit();
-		return SonoCode::SDL_ERROR;
 	}
 
-	return SonoCode::OK;
-}
-
-Sono::Sono() {
-	//Start up SDL and make sure it went ok
-	if (SDL_Init(SDL_INIT_VIDEO) != 0){
-		logSDLError(std::cout, "SDL_Init");
-	}
-}
-
-Sono::~Sono() {
-	//TODO: Clean up!
+	return renderer;
 }
