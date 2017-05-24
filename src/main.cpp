@@ -5,14 +5,17 @@
 //Screen attributes
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
+SDL_Renderer *renderer;
+
 
 Sono::Sono() {
 	//Start up SDL and make sure it went ok
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
 		logSDLError(std::cout, "SDL_Init");
+		SDL_Quit();
 	}
 
-	SDL_Renderer *renderer = CreateRenderer(CreateWindow());
+	renderer = CreateRenderer(CreateWindow());
 
 	if (renderer != nullptr) {
 		logSDLError(std::cout, "YESSS");
