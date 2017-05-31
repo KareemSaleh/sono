@@ -1,4 +1,4 @@
-project(SonoApp)
-add_executable(SonoApp SonoApp.cpp)
-target_link_libraries(SonoApp Sono)
-install(TARGETS SonoApp RUNTIME DESTINATION ${BIN_DIR})
+project(SonoDemo)
+add_executable(SonoDemo SonoDemo.cpp)
+target_link_libraries(SonoDemo Sono)
+install(TARGETS SonoDemo RUNTIME DESTINATION ${BIN_DIR})
