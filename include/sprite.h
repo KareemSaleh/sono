@@ -11,7 +11,8 @@ class Sprite {
 
 public:
   std::string Type;
-  
+  int Id;
+
   Sprite(SDL_Texture *tex);
   ~Sprite();
 

@@ -12,3 +12,7 @@ Scene::~Scene() {
 Scene::AddSprite(Sprite sprite) {
 
 }
+
+Scene::RemoveSprite(int id) {
+
+}
