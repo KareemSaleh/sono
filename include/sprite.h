@@ -15,6 +15,7 @@ public:
 
   Sprite(SDL_Texture *tex);
   ~Sprite();
+  void Move(int x, int y = 0, int z = 0);
 
 private:
   int x, y, w, h;

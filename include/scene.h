@@ -11,7 +11,8 @@ class Scene {
   };
 
 public:
-  AddSprite(Sprite sprite);
+  void AddSprite(Sprite sprite);
+  void RemoveSprite(int id);
 private:
 
 
