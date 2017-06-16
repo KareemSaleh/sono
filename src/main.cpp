@@ -18,7 +18,7 @@ Sono::Sono() {
 	renderer = CreateRenderer(CreateWindow());
 
 	if (renderer != nullptr) {
-		logSDLError(std::cout, "YESSS");
+		logSDLInfo(std::cout, "YESSS");
 		SDL_Quit();
 	}
 }
