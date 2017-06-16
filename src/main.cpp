@@ -19,12 +19,41 @@ Sono::Sono() {
 
 	if (renderer != nullptr) {
 		logSDLInfo(std::cout, "YESSS");
-		SDL_Quit();
+		Render(renderer);
 	}
 }
 
 Sono::~Sono() {
 	//TODO: Clean up!
+}
+
+void Sono::Render(SDL_Renderer *renderer) {
+	SDL_Event e;
+	bool quit = false;
+	int x = 0, y = 0;
+
+	while (!quit){
+		while (SDL_PollEvent(&e)){
+			if (e.type == SDL_QUIT){
+				quit = true;
+			}
+			if (e.type == SDL_KEYDOWN){
+				switch (e.key.keysym.sym){
+					case SDLK_ESCAPE:
+						quit = true;
+						break;
+					default:
+						break;
+				}
+			}
+		}
+		//Rendering
+		SDL_RenderClear(renderer);
+		//TODO: Draw the image
+
+		//Update the screen
+		SDL_RenderPresent(renderer);
+	}
 }
 
 /*

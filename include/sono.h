@@ -15,6 +15,7 @@ private:
 
   void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, SDL_Rect dst, SDL_Rect *clip);
   void renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_Rect *clip);
+  void Render(SDL_Renderer *renderer);
   SDL_Window* CreateWindow();
   SDL_Renderer* CreateRenderer(SDL_Window *window);
 
