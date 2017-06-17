@@ -5,10 +5,11 @@
 //Screen attributes
 const int SCREEN_WIDTH  = 640;
 const int SCREEN_HEIGHT = 480;
-SDL_Renderer *renderer;
 
 
 Sono::Sono() {
+	SDL_Renderer* renderer;
+	
 	//Start up SDL and make sure it went ok
 	if (SDL_Init(SDL_INIT_VIDEO) != 0){
 		logSDLError(std::cout, "SDL_Init");
@@ -94,7 +95,7 @@ void Sono::renderTexture(SDL_Texture *tex, SDL_Renderer *ren, int x, int y, SDL_
 }
 
 SDL_Window* Sono::CreateWindow() {
-	//Setup our window and renderer
+	//Setup our window
 	SDL_Window *window = SDL_CreateWindow("Sonoluminescence", SDL_WINDOWPOS_CENTERED,
 			SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
