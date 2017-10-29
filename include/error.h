@@ -1,6 +1,8 @@
 #ifndef ERROR_H
 #define ERROR_H
 
+#include <time.h>
+#include <string>
 enum SonoCode {
   OK = 0,
   SDL_ERROR = 1,

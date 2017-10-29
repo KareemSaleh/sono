@@ -21,4 +21,4 @@ target_link_libraries(Sono ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARY})
 # Subdirectory for testing app to fool around with the engine
 add_subdirectory(test)
 
-install(TARGETS Sono LIBRARY DESTINATION ${BIN_DIR})
+install(TARGETS Sono RUNTIME DESTINATION ${BIN_DIR})
